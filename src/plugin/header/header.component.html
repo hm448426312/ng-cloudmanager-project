@@ -1,0 +1,31 @@
+<div class="dc-header-container">
+  <div class="dc-header" [ngClass]="{'zoomout':!isOpen}">
+    <div class="toggle-left-menu" (click)="sendToggleLeftMenu()">
+      <div class="toggle-arrow"></div>
+      <div class="toggle-square">
+        <div></div>
+      </div>
+    </div>
+    <div class="search">
+      <input type="text" [(ngModel)]="keyword" (keyup.enter)="sendSearchResult()" placeholder="请输入要搜索的内容">
+      <span (click)="sendSearchResult()"></span>
+    </div>
+    <div>
+      联系我们
+    </div>
+    <div class="user" (click)="toggleUserMenu=!toggleUserMenu">
+      <div class="avatar"></div>
+      <div class="user-menu">
+        <div>{{userInfo?.username || '未登录'}}</div>
+        <ul [hidden]="!toggleUserMenu">
+          <li *ngFor="let menu of userMenuData" (click)="sendUserMenu(menu)">
+            {{menu.text}}
+          </li>
+        </ul>
+      </div>
+      <div class="double-arrow">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

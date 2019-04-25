@@ -1,0 +1,19 @@
+<div class="display-flex width-100 flex-end" *ngIf="total!=0">
+
+    <div style="font-size: 12px;color: #666666">
+        共{{total}}条
+    </div>
+    <div class="display-flex" style="margin-left:20px">
+        <div class="select-box left" (click)="jumpPage('before')" [ngClass]="{'cursor-pointer':nowPage!=1}"></div>
+        <div class="cursor-pointer number" style="margin-left:5px" (click)="jumpPage(1)" [ngClass]="{'selet':nowPage==1}">1</div>
+        <div *ngIf="showBeforeDot" style="margin-left:10px">...</div>
+        <div class="cursor-pointer number" style="margin-left:10px" *ngFor="let c of showList" (click)="jumpPage(c)" [ngClass]="{'selet':nowPage==c}">{{c}}</div>
+        <div *ngIf="showAfterDot" style="margin-left:10px">...</div>
+        <div class="cursor-pointer number" *ngIf="maxPage!=1" style="margin-left:10px" (click)="jumpPage(maxPage)" [ngClass]="{'selet':nowPage==maxPage}">{{maxPage}}</div>
+        <div class="select-box right" style="margin-left:5px" (click)="jumpPage('after')" [ngClass]="{'cursor-pointer':nowPage!=maxPage}"></div>
+    </div>
+    <div style="margin-left:20px;font-size: 12px;color: #666666">
+        跳转至
+        <input [(ngModel)]="jump" type="text" class="jump-input" (keypress)="pressInput($event)"> 页
+    </div>
+</div>

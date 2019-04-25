@@ -1,0 +1,34 @@
+<div class="dc-left-menu-container" [ngClass]="{'menuClose':!isOpen}">
+  <div class="dc-left-menu">
+    <div class="logo" *ngIf="isOpen">中移在线研发云</div>
+    <div class="small-logo" *ngIf="!isOpen"></div>
+    <ng-container *ngFor="let menu of menus">
+      <div class="menu-item">
+        <div class="level level-1" [class.menuActive]="currentMenu===menu">
+          <span [ngStyle]="{'background-image':'url('+menu.icon+')'}" (click)="menuClick($event,menu,1)" [routerLink]="menu.url">{{menu.title}}</span>
+          <div class="double-arrow" *ngIf="menu.children && menu.children.length>0">
+            <div></div>
+          </div>
+        </div>
+        <div class="sub-menu" *ngIf="menu.children && menu.children.length>0" [hidden]="currentMenu!==menu">
+          <ng-container *ngFor="let submenu of menu.children">
+            <div class="level level-2" [class.menuActive]="currentSubMenu===submenu">
+              <span (click)="menuClick($event,submenu,2)">{{submenu.title}}</span>
+              <div class="double-arrow" *ngIf="submenu.children && submenu.children.length>0">
+                <div></div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <div class="third-menu" [hidden]="!(currentThreeLevelMenus && currentThreeLevelMenus.length>0)"
+         (mouseleave)="currentThreeLevelMenus=undefined">
+      <ng-container *ngFor="let threeLevelMenu of currentThreeLevelMenus">
+        <div class="level level-3" [class.menuActive]="currentThreeLevelMenu===threeLevelMenu">
+          <span (click)="menuClick($event,threeLevelMenu,3)">{{threeLevelMenu.title}}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

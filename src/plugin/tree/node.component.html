@@ -1,0 +1,32 @@
+<div class="display-flex width-100 flex-direction-column node-container">
+  <div class="display-flex width-100">
+    <div class="before-node">
+    </div>
+    <div class="icon" [class.cursor-pointer]="nodeData[keyChild]!=null && nodeData[keyChild].length>0">
+      <i (click)="changeShow()" *ngIf="nodeData[keyChild]!=null && nodeData[keyChild].length>0">{{getText()}}</i>
+    </div>
+    <div class="tree-icon" *ngIf="options && options['iconCls']" [ngClass]="[getFileIcon(),getFolderIcon(),getExpandIcon()]">
+    </div>
+    <div class="cursor-pointer" (click)="clickNode(nodeData)"
+         [class.active]="nodeData.lighthight" [class.selected]="nodeData.selected">
+      {{nodeData[keyName]}}
+    </div>
+    <div class="" *ngIf="options && options.actionBtn" style="float: right;">
+      <ng-template ngFor let-actbtn [ngForOf]="options.actionBtn">
+        <i *ngIf="(root && !actbtn.rootHide) || !root" class="{{actbtn.cls}}"
+           (click)="doNodeFn(actbtn)">{{actbtn.text}}</i>
+      </ng-template>
+    </div>
+  </div>
+
+  <div *ngIf="nodeData[keyChild]!=null && nodeData[keyChild].length>0 && nodeData.show"
+       class="display-flex width-100 flex-direction-column sub-node-container">
+    <div *ngFor="let node of nodeData[keyChild]">
+      <div>
+        <dc-node [nodeData]="node" [keyChild]="keyChild" [keyId]="keyId"
+                 [options]="options" [keyName]="keyName"
+                 (clickEvent)="_clickNode($event)" (extendEvent)="_extendNode($event)"></dc-node>
+      </div>
+    </div>
+  </div>
+</div>

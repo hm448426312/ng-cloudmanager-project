@@ -1,0 +1,57 @@
+.tabs {
+  padding: 15px 20px 0;
+  border-bottom: solid 1px #d6d6d6
+}
+
+.tabs>div {
+  margin-right: 70px
+}
+
+.title {
+  cursor: pointer;
+  display: table;
+  position: relative;
+  bottom: 0;
+  font-size: 18px;
+  height: 36px;
+  color: #666;
+}
+
+.title.active {
+  font-weight: bold;
+  color: #333;
+  border-bottom: solid 2px #333;
+  bottom: -1px;
+}
+
+.title>div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.title.active>div {
+  padding-bottom: 3px
+}
+
+.title>div.icon {
+  padding: 0 10px 5px 0
+}
+
+.title>i {
+  font-size: 10px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(100% + 7px);
+  top: 10px;
+  display: block;
+  padding: 0 8px;
+  line-height: 14px;
+  height: 16px;
+  color: #fff;
+  border-radius: 10px;
+  font-style: normal
+}
+
+.title.active>i {
+    top: 9px
+}

@@ -1,0 +1,8 @@
+<div class="display-flex width-100 flex-direction-column" [style.position]="'relative'" [style.max-width]="width">
+    <input type="text" [(ngModel)]="text" (keydown)="press($event)" (blur)="blur()" (focus)="focus()" (ngModelChange)="changeText()">
+    <div class="complete-container width-100 flex-direction-column" *ngIf="showContainer">
+        <div *ngFor="let c of show_source" class="source-title" [ngClass]="{active:c.show}" (click)="selectText(c)">
+            {{c.title}}
+        </div> 
+    </div>
+</div>

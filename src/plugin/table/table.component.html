@@ -1,0 +1,62 @@
+
+<table class="table" #table>
+  <thead>
+  <tr>
+    <th *ngIf="checkBox" class="check-box">
+      <input *ngIf="!radio" id='hcheckbox{{tableId}}' type='checkbox' [(ngModel)]='allSelect' (ngModelChange)="allSelectCheck()"><label
+      *ngIf="!radio" for="hcheckbox{{tableId || ''}}"></label>
+    </th>
+    <th class="table-title" *ngFor="let header of headers; let j = index"
+        title="{{header.hideTitle?'':header.title}}" [style.width]="setWidth(header.width, j)">
+      <div class="table-title-th" [ngStyle]="setThCenter(header.isThCenter)">
+        <div [ngStyle]="{'border-left':j===0?'none':'solid 0px #ccc'}" class="text-over-flow">{{header.title}}</div>
+        <div *ngIf="header.filter" class="table-th-filter" [ngClass]="{'hasFilter':hasFilter[j]}">
+          <div class="filterBtn" (click)="showFilterBox($event, header)"></div>
+          <ng-container [ngTemplateOutlet]="filterTemplate"
+                        [ngTemplateOutletContext]="{$implicit: {header: header,index:j}}"></ng-container>
+        </div>
+        <div *ngIf="header.canSort" class="table-th-sort" (click)="sort(header)"
+             [ngClass]="{'asc':nowSort.field==header.field && nowSort.sort=='asc','desc':nowSort.field==header.field && nowSort.sort=='desc'}">
+        </div>
+      </div>
+    </th>
+  </tr>
+  </thead>
+  <div *ngIf="!datas || datas.length == 0" class="noDatas" [style.height]="scrollHeight || 'auto'">
+    <div style="text-align: center; height: 80px; line-height: 80px; font-size: 14px;">暂无数据</div>
+  </div>
+  <div *ngIf="datas && datas.length > 0" [style.height]="scrollHeight || 'auto'" #overflowBox>
+    <tbody>
+    <tr *ngFor="let data of datas; let i = index" [ngStyle]="setCheckStyles(checks[i])" [class.bgc]="oddEven">
+      <td *ngIf="checkBox">
+        <input type='checkbox' id="checkbox{{tableId || ''}}{{i}}" [disabled]="data.readOnly" [(ngModel)]='checks[i]'
+               (ngModelChange)="checkSelect(i)"><label for="checkbox{{tableId || ''}}{{i}}"></label>
+      </td>
+      <td *ngFor="let header of headers">
+        <ng-container [ngTemplateOutlet]="template"
+                      [ngTemplateOutletContext]="{$implicit: {d: data, h: header, w: setWidth(header.width)}}"></ng-container>
+      </td>
+    </tr>
+    </tbody>
+  </div>
+</table>
+
+<ng-template #filterTemplate let-data>
+  <div *ngIf="data.header.filter.type === 'text'" class="filter-box" [class.offset-left]="data.header.filter.offsetLeft">
+    <input type="text" value="" (keyup.enter)="clickFilter($event, data.header,data.index)" [ngModel]="curSearchValue"
+           (ngModelChange)="checkEmpty($event,data.header,data.index)" placeholder="请输入筛选内容">
+  </div>
+  <div *ngIf="data.header.filter.type === 'checkList'" class="filter-box" [class.offset-left]="data.header.filter.offsetLeft">
+    <ng-container *ngFor="let option of data.header.filter.optionList; let k = index">
+      <input type='checkbox' id="fcheckbox{{tableId || ''}}{{k}}" [(ngModel)]='option.check'
+             (ngModelChange)="checkOption($event, k, data.header)">
+      <label for="fcheckbox{{tableId || ''}}{{k}}"></label>
+      <span>{{option.name}}</span>
+      <br/>
+    </ng-container>
+    <div>
+      <div class="filterSubmit" (click)="sendCheckOption(data.header,data.index)" [ngClass]="{'hasSubmit':hasFilter[data.index]}">确定
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,27 @@
+.sub-node-container{
+    margin-left: 10px;
+}
+.before-node{
+
+}
+.left-line{
+    position: absolute;
+    width: 1px;
+    height: 100000px;
+    border-left: 1px solid red;
+}
+.node-container{
+    overflow: hidden;
+    position: relative;
+}
+.icon{
+    width: 10px;
+}
+.noIcon{
+    margin-left: 10px;
+}
+.tree-icon{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}

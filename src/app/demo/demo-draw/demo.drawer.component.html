@@ -1,0 +1,25 @@
+<button (click)="click()">有title，有mark背景的drawer </button><br>
+<button (click)="click2()" [style.margin-top]="'10px'">没有title，没有mark背景的drawer</button><br>
+<button (click)="click3()" [style.margin-top]="'10px'">draw中表格测试</button>
+<button (click)="click4()" [style.margin-top]="'10px'">draw中modal测试</button>
+<div class="demo-desc">
+  <p>使用</p>
+  <pre>
+const result = this.drawService.open({{{
+    handler: '(type) => { result.closeComponent(); }',
+    data: "{ title: 'drawer默认有mark背景，没有title标题头。可以自己设置padding，width属性' }",
+    component: 'DemoTestDrawComponent',
+    iconCls: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2RjIzNzc1MTJCNDcxMUU4ODY2M0JCNkI1RTJCMjRBRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2RjIzNzc1MjJCNDcxMUU4ODY2M0JCNkI1RTJCMjRBRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZGMjM3NzRGMkI0NzExRTg4NjYzQkI2QjVFMkIyNEFFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZGMjM3NzUwMkI0NzExRTg4NjYzQkI2QjVFMkIyNEFFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+X1Xs2wAAAP5JREFUeNqsk90KAUEUx3flkvIAyhsouSa8Bw9A8hG3ygNgkxK54UFQ4opIuSf7AErusP5TZ2ua7M6MnPpdzJwzv52Ps6bR3hqaEQdHcTKgKamBAyiKiSBwPBY9QIgbV0EJpMGMNjHgRSzMLyL+AxWSZIANsmBOsj4v8gsmKdNim+YuJHVllkyUAD2QAlchx8Z5sAErZruDsIdoD+pgCmJCLkp31QQ7tqO35PUs8AQLkANnkrBjjUCHv6Ob5IjsdV5gCQpgwktcUUSxh4acrAG6Yh/pxBiswenXhpTWqDakb43TSmr/a57xV5FfQ7ohrQkoNKShUqPakNKajwADAARfOijVnTqGAAAAAElFTkSuQmCC',
+    padding: '30px',
+    mark: false
+    } | json}});
+  </pre>
+  <h2>配置</h2>
+  <p><span class="label">handler</span>: 在内容component中定义@Input() hanlder且触发handler(),将调用此处的handler; </p>
+  <p><span class="label">data</span>: 在内容component中定义@Input() data(), 组件将接收此处的data值(对象为引用空间，可以理解为一方变更，另一方也会变化) </p>
+  <p><span class="label">*component</span>: draw的内容component; <span class="label">desc</span>: 该component中必须定义beforeLeave方法，详细见示例</p>
+  <p><span class="label">iconCls</span>: draw的title前面的小图标(base64码)</p>
+  <p><span class="label">title</span>: draw的title，无则没有title</p>
+  <p><span class="label">padding</span>: draw的内容padding值，默认为20px</p>
+  <p><span class="label">mark</span>: 是否有遮罩</p>
+</div>

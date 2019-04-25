@@ -1,0 +1,39 @@
+.jump-input{
+    height: 17px;
+    width: 17px;
+    min-width: 30px;
+}
+.select-box{
+    display: flex;
+    justify-content: center;
+}
+.selet{
+    background-color: #e2e8ed;
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+}
+.number{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #666666
+}
+.left{
+    background-image: url(/assets/img/leftPage.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px
+}
+
+.right{
+    background-image: url(/assets/img/rightPage.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px
+}

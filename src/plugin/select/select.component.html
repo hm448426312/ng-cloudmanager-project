@@ -1,0 +1,12 @@
+<div class="dc-select-container" [ngClass]="{'disable':disable}" [style.width]="width">
+  <div class="dc-select-input">
+    <input name="dcSelect" [(ngModel)]="keyword" [disabled]="disable" [readonly]="isReadonly" (keyup.enter)="confirm()" #inputSelect>
+    <span [hidden]="(keyword && keyword.length>0) || isFocus">{{currentValue}}</span>
+    <div class="dc-select-btn" #dropBtn>
+      <div class="dc-select-arrow"></div>
+    </div>
+  </div>
+  <ul class="dc-select-drop" #dropList [style.maxHeight]="maxHeight">
+    <li *ngFor="let option of filter(optionList, keyword); let i = index; trackBy: trackByIndex " (click)="changeValue(option)">{{option[displayField] || option}}</li>
+  </ul>
+</div>

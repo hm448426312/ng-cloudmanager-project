@@ -1,0 +1,12 @@
+<div class="dc-modal-backdrop"></div>
+<div class="dc-modal-click" (click)="onModalClick($event)">
+  <div class="dc-modal-box" tabindex="1" [style.width]="width">
+    <div class="dc-modal-header">
+      <div class="dc-modal-title">{{title}}</div>
+      <div class="dc-modal-close" (click)="onHidden()"></div>
+    </div>
+    <div class="dc-modal-content">
+      <template dcModalContainerHost></template>
+    </div>
+  </div>
+</div>

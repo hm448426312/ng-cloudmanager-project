@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clearFix {
+  zoom: 1;
+}
+
+.clearFix:after {
+  clear: both;
+  height: 0px;
+  width: 100%;
+  overflow: hidden;
+  visibility: hidden;
+  display: block;
+  content: '.';
+}
+
+.full-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.selected {
+  color: #005cbf;
+}
+
+.action-del.rootNode {
+  display: none;
+}
+
+.tree-icon-folder {
+  background-color: #1ab394;
+}
+
+.tree-icon-file {
+  background-color: #5a6268;
+}
+
+.tree-icon-folder.tree-icon-expand {
+  background-color: #005cbf;
+}
+
+html {
+  font-size: 14px !important;
+}
+
+/**{
+  font-size: 14px !important;
+  box-sizing: content-box !important;
+}
+*:focus {
+   -webkit-box-shadow: 0 0 0 0 transparent !important;
+   box-shadow: 0 0 0 0 transparent !important;
+}*/
+
+.display-flex {
+  display: flex
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.width-100 {
+  width: 100%
+}
+
+.flex-end {
+  justify-content: flex-end
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.page-background {
+  padding: 25px;
+  min-height: calc(100vh - 50px);
+  background-color: #FAFAFA;
+}
+
+.page-container {
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+}
+
+.red-tip {
+  color: red
+}
+
+.text-over-flow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-icon {
+  background-image: url(/assets/img/search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 36px;
+  height: 28px;
+  position: absolute;
+  left: 174px;
+  cursor: pointer;
+}
+
+.search-input {
+  border: 1px solid #ccc !important;
+  border-radius: 3px;
+  background: none !important;
+  height: 28px;
+  width: 180px;
+}
+
+.auto-refresh {
+  line-height: 30px;
+  color: #999999;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.tab-contanier {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex
+}
+
+.tab-title {
+  font-size: 14px;
+  color: #999999;
+  line-height: 30px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-title.active {
+  color: #333333;
+  border-bottom: 3px solid #1ab394;
+}
+
+input::-ms-clear {
+  display: none !important;
+  overflow: hidden !important;
+}
+
+:host /deep/ input::-ms-clear {
+  display: none !important;
+  overflow: hidden !important;
+}
+
+.demo-desc {
+  margin: 20px;
+  border: 1px solid red;
+  padding: 20px;
+}
+
+body .demo-desc * {
+  font-size: 14px;
+}
+
+.demo-desc .label {
+  color: red;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 0 solid transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  box-shadow: 0 0 0 5px rgba(201, 201, 201, 1) inset;
+  opacity: 0.2;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/**
+demo示例公用代码 start
+ */
+pre {
+  max-height: none;
+  padding: 20px;
+  border: none;
+  margin: 0;
+}
+
+.demo-content {
+  margin: 40px 40px 0;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.demo-eg-list {
+  margin-bottom: 20px;
+}
+
+.demo-eg-effect {
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.demo-eg-list-title{
+  font-size: 26px;
+  color: #03384a;
+  padding: 20px
+}
+.demo-eg-effect-content {
+  margin: 20px;
+}
+
+.demo-eg-basic-btn {
+  position: absolute;
+  border: 1px solid transparent;
+  left: 50px;
+  padding: 0 10px;
+  bottom: -12px;
+  height: 24px;
+  text-indent: 25px;
+  cursor: pointer;
+  z-index: 1;
+  color: #666;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAMCAYAAACJOyb4AAABDklEQVQ4jZ2UwXGDMBBFHxkXQAmU4BIowR0EX7RHJxWAK4g57im4g5TgElICJdCBcmDlyArCTHZGl9Xf/1dfWuG959lyzlVbcOnasRIi0gAtcAW6JI+qDmv1i+QRaZWpq4BWRFrgnBMpvPeBsAQa4BSRfgN9WiwiNfAZ4cYlkcI5VwJvRlpafgCuqnrLdB5EDlZXW2oCeuCiqlPhnOuYLQC4WAfTGumCSGUcB2twAo4vzEcPZA3wYeDNoaoj8M58YkxgX3jvg9+pNTdmv7+edF0Dr9YYRNbcLzQCNzy+lBE4pv4b7gTsI1wPDMHWP+QZkbOqdtFex+89jWSeY3aIDDyEgVmILOk9/jPWW7+DH40Z9gErRNHAAAAAAElFTkSuQmCC) no-repeat 10px center #fff;
+}
+.demo-eg-basic-btn:hover{
+  color: #333;
+  font-weight: bold;
+}
+
+.demo-eg-basic-btn.active {
+  color: #333;
+  font-weight: bold;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAXCAYAAADduLXGAAABD0lEQVQ4ja2STXHDMBCFv3gKIBAMxRBSBu1Fe3QYtGGQHN8pCYMysCEEgiGYgXrobkaW3Z66Mx6N9Z6+/ZHIOVN+KaU2pdTV+zlnGtYxAIOZvdXCwmxmB6D1348/zUDv6wi0Nf1pNrMO6Nz4vkUvySFcJE1b9MaprVMnSV+unWp6U23cQ5A0AlNJb5waqW4sY0HfpZSisUlSbcbMPgO0yznX+q+xdYP/Y46aAR6S5lL05ltglvRo+Ol0AI4bsKtrhygjxtOb2b6idsAMnAEaH/4I7IMQh329RHnR4Opq2bio55zNbPC0r57lCtwkxQvkpSCd3Ny7ucy4JFd0ampZc0mPuFcaq7dhZkcASefa/A0xhoAp6UX5EAAAAABJRU5ErkJggg==) no-repeat 10px center #fff;
+}
+
+.demo-eg-basic-content {
+  border: 1px solid #ccc;
+  border-top: none;
+  display: none;
+  padding-top: 20px;
+}
+
+.demo-eg-basic-tab-box{
+  padding-top: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.demo-eg-basic-tab {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  top: 1px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #666;
+}
+.demo-eg-basic-tab:hover{
+  color: #333;
+  font-weight: bold;
+}
+
+.demo-eg-basic-tab.active {
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #f8f8f8;
+  background: #f8f8f8;
+  border-radius:  3px 3px 0 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.demo-eg-basic-code {
+  display: none;
+  background: #f8f8f8;
+}
+
+.demo-eg-basic-code.active {
+  display: block;
+}
+
+.demo-api-title {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+.demo-api-table table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.demo-api-table pre{
+  padding: 0;
+}
+.demo-api-table td,
+.demo-api-table th{
+  text-align: left;
+  padding: 10px 8px;
+  border: 1px solid #ccc;
+}
+.demo-api-table th{
+  background-color: #f8f8f8;
+}
+.demo-api-table tbody tr:nth-of-type(even){
+  background-color: #f5f5f5;
+}
+/**
+demo 示例公用代码 end
+ */
+

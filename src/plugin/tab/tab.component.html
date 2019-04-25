@@ -1,0 +1,12 @@
+<div class="display-flex width-100 flex-direction-column">
+    <div class="display-flex width-100 tabs">
+        <div *ngFor="let d of tabDatas">
+            <div class="title" (click)="changeTab(d)" [ngClass]="{'active':d.select}">
+                <div *ngIf="d.icon" class="icon"><img src="{{d.icon}}"></div>
+                <div>{{d.title}}</div>
+                <i *ngIf="d.notify && d.notify>0" [ngStyle]="{'background-color':d.notifyColor}">{{d.notify}}</i>
+            </div>
+        </div>
+    </div>
+    <div #dyComponent class="width-100"></div>
+</div>

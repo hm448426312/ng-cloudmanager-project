@@ -1,0 +1,38 @@
+<div>
+  <p>新日期控件
+    <button (click)="changeType('year')">年</button>
+    <button (click)="changeType('month')">月</button>
+    <button (click)="changeType('day')">日</button>
+    <button (click)="changeDate(true)">清空日期</button>
+    <button (click)="changeDate(false)">改变日期</button>
+  </p>
+  <!--<dc-ng-datepicker-new [offset]="'left'" (ngModelChange)="outputx($event)" ></dc-ng-datepicker-new>-->
+  <dc-ng-datepicker-new [offset]="'left'" [date]="date" [canClear]="true" [type]="newType"
+                        [minDate]="options.minDate" [maxDate]="options.maxDate"
+                        (ngModelChange)="outputx($event)"></dc-ng-datepicker-new>
+</div>
+<div>
+  <button (click)="clearDate($event, dateBox)">清空日期</button>
+  <dc-date-picker #dateBox [date]="date" [options]="options"
+                  (dateChangeEvent)="dateChangeEvent($event)"></dc-date-picker>
+  <dc-date-picker [date]="date" [options]="options" (dateChangeEvent)="dateChangeEvent($event)"></dc-date-picker>
+</div>
+<div style="margin-top: 400px;">
+  <dc-date-picker [date]="date" [defaultShow]="true" [options]="options"
+                  (dateChangeEvent)="dateChangeEvent($event)"></dc-date-picker>
+  <dc-date-picker [date]="date" [defaultShow]="true" [options]="options"
+                  (dateChangeEvent)="dateChangeEvent($event)"></dc-date-picker>
+</div>
+
+<div class="demo-desc">
+  <h2>输入</h2>
+  <p><span class="label">date</span>: Date || string; <span class="label">eg</span>: newDate(Date().now) ||
+    '2017/01/01'; <span class="label">desc</span>: 默认选中的日期，可变更</p>
+  <p><span class="label">options</span>: {{{maxDate: 'Date', minDate: 'Date'} | json}}; <span class="label">eg</span>:
+    {{{maxDate: 'null', minDate: 'new Date(Date.now())'} |
+    json}}; <span class="label">desc</span>: 日期配置信息，支持最大日期和最小日期配置，不在日期范围内不可选中（默认传值除外）</p>
+  <h2>输出</h2>
+  <p><span class="label">dateChangeEvent</span>:
+    返回数据格式{{{"date":"2018-05-15T16:00:00.000Z","startDate":"2018-05-15T16:00:00.000Z","endDate":null}
+    | json}}; <span class="label">desc</span>: 取值date即可</p>
+</div>

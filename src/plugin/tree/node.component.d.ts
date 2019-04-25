@@ -1,0 +1,35 @@
+import { OnInit, EventEmitter, OnChanges, SimpleChanges, ComponentFactoryResolver } from '@angular/core';
+import { Router } from '@angular/router';
+export declare class NodeComponent implements OnInit, OnChanges {
+    private resolver;
+    private router;
+    showSub: any;
+    _nodeData: any;
+    root: boolean;
+    keyId: string;
+    keyName: string;
+    keyChild: string;
+    options: any;
+    clickEvent: EventEmitter<{}>;
+    extendEvent: EventEmitter<{}>;
+    iconClsFolder: string;
+    iconClsExpand: string;
+    iconClsFile: string;
+    nodeData: any;
+    nodeChangeEvent: EventEmitter<{}>;
+    constructor(resolver: ComponentFactoryResolver, router: Router);
+    init(): any;
+    private needShow(node);
+    ngOnInit(): void;
+    initClsObj(): void;
+    getFileIcon(): string;
+    getFolderIcon(): string;
+    getExpandIcon(): string;
+    clickNode(nodeData: any): void;
+    changeShow(): void;
+    doNodeFn(option: any): void;
+    _clickNode(event: any): void;
+    _extendNode(event: any): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    getText(): "-" | "+";
+}

@@ -1,0 +1,8 @@
+<div class="display-flex width-100 flex-direction-column">
+    <div *ngFor="let node of treeDatas">
+        <div class="tree-node-container">
+            <dc-node [nodeData]="node" [root]="true" [keyChild]="keyChild" [keyId]="keyId" [keyName]="keyName" [options]="options"
+            (clickEvent)="clickNode($event)" (extendEvent)="extendNode($event)"></dc-node>
+        </div>
+    </div>
+</div>

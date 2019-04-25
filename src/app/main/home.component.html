@@ -1,0 +1,15 @@
+<!--
+<div>
+  <dc-left-menu [menus]="menuArr" [selectMenu]="selectMenu" (menuEvent)="menuEvent($event)"></dc-left-menu>
+  <dc-header [searchResults]="searchArr" [userInfo]="userData" [leftMenuStatus]="isOpen"
+             (toggleLeftMenuEvent)="toggleLeftMenuEvent($event)" (searchResult)="showContent($event)"
+             (userMenu)="showContent($event)" (contactus)="contactusClick()"></dc-header>
+  <div [style.padding-left]="isOpen?'250px':'50px'">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+-->
+<div>
+  <div class="header"></div>
+  <router-outlet></router-outlet>
+</div>

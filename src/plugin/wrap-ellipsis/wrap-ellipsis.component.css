@@ -1,0 +1,16 @@
+.wrapper {
+    word-wrap: break-word;
+    white-space: normal;
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+}
+
+.wrap-ellipsis-div {
+    position: fixed;
+    left: -100%;
+    bottom: -100%;
+}
