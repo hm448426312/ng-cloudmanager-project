@@ -416,6 +416,10 @@ export class TreeComponent implements OnInit {
         result.push(source[i]);
         theI.isHide = false;
         hasFlag = true;
+      } else {
+        if (!theI[this.keyChild]) {
+          theI.isHide = true;
+        }
       }
       if (theI[this.keyChild]) {
         const flag: any = {
